@@ -1,0 +1,42 @@
+#import_data
+imports_data = [('Crude Oil', 61.08),
+                ('Natural Gas', 5.61),
+                ('Pearls, precious & Semi-precious stones', 3.92),
+                ('Electronic Goods', 3.31),
+                ('Gold', 2.59),
+                ('Petroleum Products', 2.41),
+                ('Coal, Coke & Briquettes', 1.83),
+                ('Chemicals (Organic/Inorganic)', 1.79),
+                ('Iron & Steel', 1.48),
+                ('Fertilizers', 1.30)]
+
+imports= float(input("Enter your import value: "))
+
+# Calculate the total export value
+total_export_value = sum([item[1] for item in imports_data])
+
+# Categorize the export data into high, moderate, and low values using if/else statements
+high_value_imports = []
+moderate_value_imports = []
+low_value_imports = []
+
+for item in imports_data:
+    if item[1]/total_export_value >= 0.10:
+        high_value_imports.append(item[0])
+    elif item[1]/total_export_value >= 0.05:
+        moderate_value_imports.append(item[0])
+    else:
+        low_value_imports.append(item[0])
+
+# Print the results
+#print("High value exports: ", high_value_imports)
+#print("Moderate value exports: ", moderate_value_imports)
+#print("Low value exports: ", low_value_imports)
+
+# Print the results based on the user's input value
+if 0.05 < float(imports) <= 0.1: 
+    print("Low value imports: ", low_value_imports)
+elif float(imports) <= 0.05:
+    print("Moderate value imports: ", moderate_value_imports)
+else:
+    print("High value imports: ", high_value_imports)
