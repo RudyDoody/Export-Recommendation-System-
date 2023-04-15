@@ -23,7 +23,7 @@ while True:
         if continue_choice.lower() != "y":
             # If the user doesn't want to continue with the program, break out of the while loop and exit
             print("Thank you for using this program.")
-            break
+        break
     
     # If the user chooses not to access the FAQ section or chooses to continue with the program after accessing it, display the main menu
     else:
@@ -118,6 +118,7 @@ imports_data = [('Crude Oil', 61.08),
                 ('Chemicals (Organic/Inorganic)', 1.79),
                 ('Iron & Steel', 1.48),
                 ('Fertilizers', 1.30)]
+
 
 
 
@@ -241,6 +242,32 @@ elif float(imports) <= 0.05:
     print("Moderate value imports: ", moderate_value_imports)
 else:
     print("High value imports: ", high_value_imports)
+    
+# TRADING PARTNERS
+# TRADING PARTNERS DATA
+
+trading_partners_data = [('United States', 15.87, 9.71),
+                        ('United Arab Emirates', 11.62, 14.21),
+                        ('China', 10.85, 78.44),
+                        ('Hong Kong', 5.70, 1.72),
+                        ('Singapore', 5.38, 3.20),
+                        ('United Kingdom', 3.76, 2.66),
+                        ('Netherlands', 3.53, 3.55),
+                        ('Germany', 3.15, 8.20),
+                        ('Bangladesh', 2.95, 0.81),
+                        ('Vietnam', 2.71, 1.61)]
+
+
+# calculate the total trade volume for each partner
+trade_volume_data = [(partner[0], partner[1]+partner[2]) for partner in trading_partners_data]
+
+# sort the data by total trade volume in descending order
+sorted_trade_volume_data = sorted(trade_volume_data, key=lambda x: x[1], reverse=True)
+
+# print the top trading partner recommendation for import and export
+print("Top trading partners recommendation for import and export in India:")
+print(f"1. For Import: {sorted_trade_volume_data[0][0]}")
+print(f"2. For Export: {sorted_trade_volume_data[1][0]}")    
 
 
 # BEAUTIFY OUTPUT
